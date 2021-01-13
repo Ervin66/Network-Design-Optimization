@@ -1,0 +1,54 @@
+/*********************************************
+ * OPL 12.9.0.0 Data
+ * Author: Ervin
+ * Creation Date: 01 Dec 2020 at 7:54:24
+ *********************************************/
+
+SheetConnection data("agg_data-50.xlsx"); //input datasheet
+SheetConnection result("results -reduced.xlsx"); // output datasheet
+
+
+//indices
+wh_id from SheetRead(data, "WH_ID");
+client_id from SheetRead(data,"CLIENT_ID");
+production from SheetRead(data, "PROD");
+warehouse from SheetRead(data, "WH");
+
+datetime from SheetRead(data, "DATETIME");
+must_open from SheetRead(data, "WH_MUST");
+
+//parameters
+
+out_dist from SheetRead(data,"OUTBOUND_DIST");
+inb_dist from SheetRead(data,"INBOUND_DIST");
+exw_orders from SheetRead(data, "EXW_ORDERS");
+exw_ttkm from SheetRead(data, "EXW_TTKM");
+
+
+ddu_orders from SheetRead(data, "DDU_ORDERS");
+ddu_ttkm from SheetRead(data, "DDU_TTKM");
+ddu_fix from SheetRead(data, "FIXUM");
+
+wh_capacity from SheetRead(data, "WH_CAP"); 
+wh_fixed_costs from SheetRead(data, "WH_FC");
+wh_variable_costs from SheetRead(data, "WH_VC");
+max_wh_open from SheetRead(data, "MAX_WH_OPEN");
+wh_bl_costs from SheetRead(data, "WH_BACKLOG");
+
+Active_EXW from SheetRead(data, "ACTIVE_EXW");
+Active_Backlog from SheetRead(data, "ACTIVE_BACKLOG");
+Active_Inbound from SheetRead(data, "ACTIVE_INBOUND");
+
+//export variables to excel
+/*
+Agg_Pallet_Trans to SheetWrite(result, "TOTAL_PALLET");
+Agg_Inb_Costs to SheetWrite(result, "INB_TC");
+
+EXW_Agg to SheetWrite(result, "EXW_PALLET");
+DDU_Agg to SheetWrite(result, "DDU_PALLET");
+DDU_Trans_Costs to SheetWrite(result, "DDU_TC");
+
+Wh_Opened to SheetWrite(result, "WH_OPEN");
+
+Backlog to SheetWrite(result, "BACKLOG");
+*/
