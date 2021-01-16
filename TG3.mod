@@ -87,9 +87,15 @@ forall(i in client_id, j in wh_id)sum(t in datetime)Pallet_Trans[i][j][t] == Agg
 forall(i in client_id, j in wh_id)sum(t in datetime)EXW_boolean[i][j][t]*exw_orders[i][t] == EXW_Agg[i][j]; 
 forall(i in client_id, j in wh_id)sum(t in datetime)DDU_boolean[i][j][t]*ddu_orders[i][t] == DDU_Agg[i][j];
 forall(i in client_id, j in wh_id)sum(t in datetime)(DDU_Backlog[i][j][t]*ddu_orders[i][t] + EXW_Backlog[i][j][t]*exw_orders[i][t]) == Backlog[i][j];
-forall(i in client_id, j in wh_id, t in datetime) sum(t in datetime)((DDU_boolean[i][j][t]+DDU_Backlog[i][j][t])*out_dist[i][j]*ddu_ttkm[i][t]) 
-																	 + ddu_fix*DDU_boolean[i][j][t]  == DDU_Trans_Costs[i][j];
+forall(i in client_id, j in wh_id)sum(t in datetime)((DDU_boolean[i][j][t]+DDU_Backlog[i][j][t])*out_dist[i][j]*ddu_ttkm[i][t] 
+																	 + ddu_fix*DDU_boolean[i][j][t])  == DDU_Trans_Costs[i][j];
 forall(p in production, w in warehouse)sum(t in datetime) ((Inb_Pallet[p][w][t]/30)*inb_dist[p][w]) == Agg_Inb_Costs[p][w]; //yearly inbound trans																	 
+forall(j in wh_id, t in datetime: t>4, i in client_id)EXW_boolean[i][j][t] == 0;
+forall(j in wh_id, t in datetime: t>4, i in client_id)EXW_Backlog[i][j][t] == 0;
+forall(j in wh_id, t in datetime, i in client_id)(DDU_boolean[i][j][t] + DDU_Backlog[i][j][t]) <= 1;
+forall(j in wh_id, t in datetime, i in client_id)(EXW_boolean[i][j][t] + EXW_Backlog[i][j][t]) <= 1;
+
 }
+
 
 

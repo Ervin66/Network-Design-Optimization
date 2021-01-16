@@ -4,7 +4,7 @@
  * Creation Date: 01 Dec 2020 at 7:54:24
  *********************************************/
 
-SheetConnection data("agg_data-50.xlsx"); //input datasheet
+SheetConnection data("agg_data-250.xlsx"); //input datasheet
 SheetConnection result("results -reduced.xlsx"); // output datasheet
 
 
