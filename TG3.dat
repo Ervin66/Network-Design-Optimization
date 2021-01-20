@@ -4,8 +4,8 @@
  * Creation Date: 01 Dec 2020 at 7:54:24
  *********************************************/
 
-SheetConnection data("agg_data-50.xlsx"); //input datasheet
-SheetConnection result("results -reduced.xlsx"); // output datasheet
+SheetConnection data("agg_data-k350.xlsx"); //input datasheet
+SheetConnection result("results-k350.xlsx"); // output datasheet
 
 
 //indices
@@ -28,6 +28,7 @@ exw_ttkm from SheetRead(data, "EXW_TTKM");
 ddu_orders from SheetRead(data, "DDU_ORDERS");
 ddu_ttkm from SheetRead(data, "DDU_TTKM");
 ddu_fix from SheetRead(data, "FIXUM");
+ddu_headers from SheetRead(data, "DDU_HEADERS");
 
 wh_capacity from SheetRead(data, "WH_CAP"); 
 wh_fixed_costs from SheetRead(data, "WH_FC");
@@ -40,7 +41,7 @@ Active_Backlog from SheetRead(data, "ACTIVE_BACKLOG");
 Active_Inbound from SheetRead(data, "ACTIVE_INBOUND");
 
 //export variables to excel
-/*
+
 Agg_Pallet_Trans to SheetWrite(result, "TOTAL_PALLET");
 Agg_Inb_Costs to SheetWrite(result, "INB_TC");
 
@@ -51,4 +52,3 @@ DDU_Trans_Costs to SheetWrite(result, "DDU_TC");
 Wh_Opened to SheetWrite(result, "WH_OPEN");
 
 Backlog to SheetWrite(result, "BACKLOG");
-*/
