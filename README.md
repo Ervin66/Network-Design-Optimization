@@ -51,7 +51,7 @@ inb_dist[production][warehouse]: refers to the inbound matrix between production
 
 **DDU_Backlog[client_id][wh_id][datetime]:** refers to the boolean decision whether to backlog the delivery demand for a given client from a given facility at a given time or not. If this take the value 1, the order will actually be shipped in the next time period (i.e. this signals the decision of backlogging not the execution of a backlogged order).
 
-**P****allet_Trans[client_id][wh_id][datetime]:** refers to the actual flow between a client and a facility at a given time. This variable is composed of both pick-up and delivery order as well as the backlogged orders from the previous time period.
+**Pallet_Trans[client_id][wh_id][datetime]:** refers to the actual flow between a client and a facility at a given time. This variable is composed of both pick-up and delivery order as well as the backlogged orders from the previous time period.
 
 **Wh_Opened[wh_id]:** refers to the boolean decision of opening a facility or not, please note that for the given facilities in _must_open_ this variable must assume the value of 1.
 
