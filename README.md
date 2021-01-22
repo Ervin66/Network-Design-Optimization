@@ -1,6 +1,6 @@
 # cplex
 
-Optimization tool which was devlopped in order to standardize the network design process of a consultancy specilized in Supply Chains.
+Optimization tool which was devlopped in order to standardize the network design process of a consultancy specialized in Supply Chains.
 
 ## Indices
 
